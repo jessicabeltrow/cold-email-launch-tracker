@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cold Email — Launch Tracker</title>
+<style>
+  :root{
+    --paper:#f6f6f2;--panel:#ffffff;--ink:#1d2522;--muted:#707873;--line:#dce1da;
+    --forest:#174d3b;--forest-dark:#103c2e;--mint:#d9f1df;--mint-ink:#1e6541;
+    --amber:#f8e6ba;--amber-ink:#875600;--stone:#ecefe9;--locked:#e8e4df;--locked-ink:#6e6259;
+    --shadow:0 12px 32px rgba(23,38,30,.075);--radius:18px;
+  }
+  *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.01em}
+  .wrap{max-width:1160px;margin:0 auto;padding:46px 28px 64px}
+  header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:32px}
+  .eyebrow{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--forest)}
+  h1{font-size:clamp(32px,5vw,54px);margin:6px 0 8px;line-height:1;font-weight:760;letter-spacing:-.045em}
+  .sub{color:var(--muted);font-size:16px;line-height:1.45;max-width:650px;margin:0}
+  .live{padding:10px 13px;border:1px solid #b9ddc2;border-radius:100px;background:var(--mint);color:var(--mint-ink);font-size:13px;font-weight:750;white-space:nowrap}
+  .banner{display:flex;gap:13px;align-items:flex-start;background:var(--forest);color:#f3f8f2;border-radius:var(--radius);padding:19px 21px;margin-bottom:28px;box-shadow:var(--shadow)}
+  .banner b{font-size:15px}.banner p{margin:3px 0 0;color:#cce4d2;line-height:1.45;font-size:14px}.dot{width:9px;height:9px;flex:0 0 9px;border-radius:50%;background:#75dfa0;margin-top:6px}
+  .grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px}
+  .main{display:grid;gap:15px}.section-title{display:flex;justify-content:space-between;align-items:center;margin:3px 2px 2px}.section-title h2{font-size:15px;margin:0}.section-title span{font-size:12px;color:var(--muted)}
+  .step{position:relative;display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:15px;align-items:center;background:var(--panel);padding:18px;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 10px rgba(20,30,24,.025)}
+  .step.current{border:2px solid #81b493;padding:17px;box-shadow:0 9px 22px rgba(38,88,59,.10)}
+  .num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;background:var(--stone);color:#56605a}.current .num{background:var(--forest);color:white}.locked .num{background:var(--locked);color:var(--locked-ink)}
+  .copy h3{font-size:16px;line-height:1.2;margin:0 0 5px}.copy p{font-size:13.5px;line-height:1.45;margin:0;color:var(--muted);max-width:560px}.tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:7px 9px;border-radius:100px;white-space:nowrap}.ready{background:var(--mint);color:var(--mint-ink)}.wait{background:var(--amber);color:var(--amber-ink)}.lock{background:var(--locked);color:var(--locked-ink)}
+  aside{display:grid;align-content:start;gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:19px}.card h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 14px;color:var(--muted)}.card p{font-size:14px;line-height:1.45;margin:0;color:#39433e}.card ul{padding:0;margin:0;list-style:none;display:grid;gap:12px}.card li{font-size:13.5px;line-height:1.35;padding-left:20px;position:relative}.card li:before{content:"";position:absolute;left:0;top:5px;width:9px;height:9px;border:2px solid var(--forest);border-radius:50%}
+  .metric{font-size:34px;letter-spacing:-.05em;font-weight:780;color:var(--forest);line-height:1;margin-bottom:7px}.metric-label{font-size:13px;color:var(--muted);line-height:1.35}.mini{padding-top:15px;margin-top:15px;border-top:1px solid var(--line);display:grid;gap:9px}.mini div{display:flex;justify-content:space-between;font-size:13px}.mini span:last-child{font-weight:750}
+  footer{margin-top:26px;color:var(--muted);font-size:12px;display:flex;gap:8px;align-items:center}.footer-dot{width:5px;height:5px;border-radius:50%;background:#a6aea8}
+  @media(max-width:780px){.wrap{padding:28px 16px 42px}header{display:block}.live{display:inline-block;margin-top:16px}.grid{grid-template-columns:1fr}.step{grid-template-columns:37px 1fr}.step .tag{grid-column:2;justify-self:start}.banner{padding:17px}.copy h3{font-size:15px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Levelled Media · cold email</div>
+      <h1>Launch tracker</h1>
+      <p class="sub">A short view of what needs to happen before anything is sent. The current focus is building a clean, proven lead pipeline while new inboxes warm up.</p>
+    </div>
+    <div class="live">● Lead building only — no live sending</div>
+  </header>
+
+  <section class="banner" aria-label="Current focus">
+    <div class="dot"></div>
+    <div><b>Current focus: prove the data pipeline</b><p>Run a small window-cleaner test around Romford, then use actual results to size the wider weekly lead flow.</p></div>
+  </section>
+
+  <div class="grid">
+    <section class="main" aria-label="Plan stages">
+      <div class="section-title"><h2>THE PATH TO LAUNCH</h2><span>Five clear stages</span></div>
+
+      <article class="step current">
+        <div class="num">1</div>
+        <div class="copy"><h3>Run the lead-data pilot</h3><p>Scrape window cleaners across about 10 nearby Romford postcode districts. Filter, find emails, verify and dedupe — nothing enters Instantly yet.</p></div>
+        <div class="tag ready">Ready now</div>
+      </article>
+
+      <article class="step">
+        <div class="num">2</div>
+        <div class="copy"><h3>Measure what the pilot really produces</h3><p>Track listings, duplicates, businesses with websites, email-found rate, verification pass rate and cost per verified contact.</p></div>
+        <div class="tag wait">After pilot</div>
+      </article>
+
+      <article class="step">
+        <div class="num">3</div>
+        <div class="copy"><h3>Set up fresh domains and inboxes</h3><p>Buy 9 new sending domains, create 27 Google inboxes, check DNS stays with Spaceship, and add the inboxes to Instantly.</p></div>
+        <div class="tag wait">Needs approval</div>
+      </article>
+
+      <article class="step locked">
+        <div class="num">4</div>
+        <div class="copy"><h3>Warm the inboxes</h3><p>Warm gradually for around four weeks. Keep watching authentication and inbox health while the lead pool grows.</p></div>
+        <div class="tag lock">Blocked by setup</div>
+      </article>
+
+      <article class="step locked">
+        <div class="num">5</div>
+        <div class="copy"><h3>Launch only when both sides are ready</h3><p>Use verified leads only, then start carefully at 20 cold emails per inbox per day. Campaign details can be decided nearer the time.</p></div>
+        <div class="tag lock">Later</div>
+      </article>
+    </section>
+
+    <aside>
+      <section class="card"><h2>What “ready to send” means</h2><ul><li>Fresh domains have finished warm-up</li><li>DNS, MX, SPF, DKIM and DMARC are all correct</li><li>The pilot has given us real lead-yield numbers</li><li>We have a healthy reserve of verified contacts</li></ul></section>
+      <section class="card"><h2>Pilot target</h2><div class="metric">10</div><div class="metric-label">adjacent Romford-area postcode districts<br>Trade: window cleaners</div><div class="mini"><div><span>Purpose</span><span>Validate data</span></div><div><span>Sending</span><span>None</span></div><div><span>Output</span><span>Lead-pool baseline</span></div></div></section>
+      <section class="card"><h2>Guardrails</h2><p>Keep levelledmedia.com out of cold sending. Leave new domains on Spaceship DNS. Never import unverified email addresses.</p></section>
+    </aside>
+  </div>
+
+  <footer><span>Plan updated 8 October 2026</span><span class="footer-dot"></span><span>This is deliberately the simple view.</span><span class="footer-dot"></span><span>Refreshes automatically every minute.</span></footer>
+</main>
+<script>setInterval(() => location.reload(), 60000);</script>
+</body>
+</html>
