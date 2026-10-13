@@ -3,95 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cold Email — Launch Tracker</title>
+<title>Cold Email — Setup Status</title>
 <style>
-  :root{
-    --paper:#f6f6f2;--panel:#ffffff;--ink:#1d2522;--muted:#707873;--line:#dce1da;
-    --forest:#174d3b;--forest-dark:#103c2e;--mint:#d9f1df;--mint-ink:#1e6541;
-    --amber:#f8e6ba;--amber-ink:#875600;--stone:#ecefe9;--locked:#e8e4df;--locked-ink:#6e6259;
-    --shadow:0 12px 32px rgba(23,38,30,.075);--radius:18px;
-  }
-  *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.01em}
-  .wrap{max-width:1160px;margin:0 auto;padding:46px 28px 64px}
-  header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:32px}
-  .eyebrow{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--forest)}
-  h1{font-size:clamp(32px,5vw,54px);margin:6px 0 8px;line-height:1;font-weight:760;letter-spacing:-.045em}
-  .sub{color:var(--muted);font-size:16px;line-height:1.45;max-width:650px;margin:0}
-  .live{padding:10px 13px;border:1px solid #b9ddc2;border-radius:100px;background:var(--mint);color:var(--mint-ink);font-size:13px;font-weight:750;white-space:nowrap}
-  .banner{display:flex;gap:13px;align-items:flex-start;background:var(--forest);color:#f3f8f2;border-radius:var(--radius);padding:19px 21px;margin-bottom:28px;box-shadow:var(--shadow)}
-  .banner b{font-size:15px}.banner p{margin:3px 0 0;color:#cce4d2;line-height:1.45;font-size:14px}.dot{width:9px;height:9px;flex:0 0 9px;border-radius:50%;background:#75dfa0;margin-top:6px}
-  .grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px}
-  .main{display:grid;gap:15px}.section-title{display:flex;justify-content:space-between;align-items:center;margin:3px 2px 2px}.section-title h2{font-size:15px;margin:0}.section-title span{font-size:12px;color:var(--muted)}
-  .step{position:relative;display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:15px;align-items:center;background:var(--panel);padding:18px;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 10px rgba(20,30,24,.025)}
-  .step.current{border:2px solid #81b493;padding:17px;box-shadow:0 9px 22px rgba(38,88,59,.10)}
-  .num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;background:var(--stone);color:#56605a}.current .num{background:var(--forest);color:white}.locked .num{background:var(--locked);color:var(--locked-ink)}
-  .copy h3{font-size:16px;line-height:1.2;margin:0 0 5px}.copy p{font-size:13.5px;line-height:1.45;margin:0;color:var(--muted);max-width:560px}.tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:7px 9px;border-radius:100px;white-space:nowrap}.ready{background:var(--mint);color:var(--mint-ink)}.wait{background:var(--amber);color:var(--amber-ink)}.lock{background:var(--locked);color:var(--locked-ink)}
-  aside{display:grid;align-content:start;gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:19px}.card h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 14px;color:var(--muted)}.card p{font-size:14px;line-height:1.45;margin:0;color:#39433e}.card ul{padding:0;margin:0;list-style:none;display:grid;gap:12px}.card li{font-size:13.5px;line-height:1.35;padding-left:20px;position:relative}.card li:before{content:"";position:absolute;left:0;top:5px;width:9px;height:9px;border:2px solid var(--forest);border-radius:50%}
-  .metric{font-size:34px;letter-spacing:-.05em;font-weight:780;color:var(--forest);line-height:1;margin-bottom:7px}.metric-label{font-size:13px;color:var(--muted);line-height:1.35}.mini{padding-top:15px;margin-top:15px;border-top:1px solid var(--line);display:grid;gap:9px}.mini div{display:flex;justify-content:space-between;font-size:13px}.mini span:last-child{font-weight:750}
-  footer{margin-top:26px;color:var(--muted);font-size:12px;display:flex;gap:8px;align-items:center}.footer-dot{width:5px;height:5px;border-radius:50%;background:#a6aea8}
-  @media(max-width:780px){.wrap{padding:28px 16px 42px}header{display:block}.live{display:inline-block;margin-top:16px}.grid{grid-template-columns:1fr}.step{grid-template-columns:37px 1fr}.step .tag{grid-column:2;justify-self:start}.banner{padding:17px}.copy h3{font-size:15px}}
+:root{--paper:#f5f5f0;--ink:#18201d;--muted:#68716c;--line:#d9ddd7;--accent:#174d3b;--amber:#8a5a00;--amber-soft:#f6eacb}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif}.wrap{width:min(820px,calc(100% - 32px));margin:0 auto;padding:42px 0 64px}header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding-bottom:25px;border-bottom:1px solid var(--line)}.eyebrow,.label,.status,.price,summary,details p,details ul,footer,.stage{font-family:Arial,sans-serif}.eyebrow{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:9px}h1{font-size:clamp(34px,7vw,54px);line-height:.98;letter-spacing:-.045em;margin:0}.updated{font-family:Arial,sans-serif;color:var(--muted);font-size:12px;white-space:nowrap;margin-top:6px}.hero{padding:42px 0 38px;border-bottom:1px solid var(--line)}.status{display:inline-flex;align-items:center;gap:8px;background:var(--amber-soft);color:var(--amber);border-radius:999px;padding:7px 11px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}.status:before{content:"";width:7px;height:7px;border-radius:50%;background:#c4860c}h2{font-size:clamp(27px,5vw,40px);line-height:1.08;letter-spacing:-.035em;margin:19px 0 12px;max-width:690px}.hero p{font-family:Arial,sans-serif;color:var(--muted);font-size:16px;line-height:1.55;margin:0;max-width:670px}.next{display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;padding:28px 0;border-bottom:1px solid var(--line)}.label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}.next strong{font-size:21px;line-height:1.25}.price{text-align:right}.price b{font-size:24px;color:var(--accent)}.price span{display:block;color:var(--muted);font-size:12px;margin-top:4px}.progress{padding:34px 0 30px;border-bottom:1px solid var(--line)}.progress h3,.prepared h3{font-size:20px;margin:0 0 22px}.track{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.track:before{content:"";position:absolute;height:2px;background:var(--line);left:12px;right:12px;top:9px}.stage{position:relative}.dot{width:20px;height:20px;border-radius:50%;background:var(--paper);border:2px solid #aeb5b0;margin-bottom:12px}.stage.done .dot{background:var(--accent);border-color:var(--accent)}.stage.current .dot{background:var(--paper);border:6px solid var(--accent)}.stage b{display:block;font-size:13px;margin-bottom:4px}.stage span{display:block;color:var(--muted);font-size:12px;line-height:1.35}.prepared{padding:32px 0}.prepared>p{font-family:Arial,sans-serif;color:var(--muted);line-height:1.5;margin:-12px 0 20px}details{border-top:1px solid var(--line)}details:last-child{border-bottom:1px solid var(--line)}summary{cursor:pointer;list-style:none;padding:17px 2px;font-weight:700;font-size:14px;display:flex;justify-content:space-between;gap:20px}summary::-webkit-details-marker{display:none}summary:after{content:"+";color:var(--accent);font-size:18px;font-weight:400}details[open] summary:after{content:"−"}details p,details ul{color:var(--muted);font-size:14px;line-height:1.55;margin:0 0 18px;padding-right:36px}details ul{padding-left:20px}footer{color:var(--muted);font-size:12px;padding-top:26px}.guardrail{color:var(--accent);font-weight:700}@media(max-width:620px){.wrap{padding-top:26px}header{display:block}.updated{margin-top:14px}.next{grid-template-columns:1fr}.price{text-align:left}.track{grid-template-columns:1fr;gap:18px}.track:before{width:2px;height:auto;left:9px;top:12px;bottom:30px}.stage{padding-left:34px}.dot{position:absolute;left:0;top:0}.hero{padding-top:32px}}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <header>
-    <div>
-      <div class="eyebrow">Levelled Media · cold email</div>
-      <h1>Launch tracker</h1>
-      <p class="sub">A short view of what needs to happen before anything is sent. The current focus is building a clean, proven lead pipeline while new inboxes warm up.</p>
-    </div>
-    <div class="live">● Lead building only — no live sending</div>
-  </header>
-
-  <section class="banner" aria-label="Current focus">
-    <div class="dot"></div>
-    <div><b>Current focus: prove the data pipeline</b><p>Run a small window-cleaner test around Romford, then use actual results to size the wider weekly lead flow.</p></div>
-  </section>
-
-  <div class="grid">
-    <section class="main" aria-label="Plan stages">
-      <div class="section-title"><h2>THE PATH TO LAUNCH</h2><span>Five clear stages</span></div>
-
-      <article class="step current">
-        <div class="num">1</div>
-        <div class="copy"><h3>Run the lead-data pilot</h3><p>Scrape window cleaners across about 10 nearby Romford postcode districts. Filter, find emails, verify and dedupe — nothing enters Instantly yet.</p></div>
-        <div class="tag ready">Ready now</div>
-      </article>
-
-      <article class="step">
-        <div class="num">2</div>
-        <div class="copy"><h3>Measure what the pilot really produces</h3><p>Track listings, duplicates, businesses with websites, email-found rate, verification pass rate and cost per verified contact.</p></div>
-        <div class="tag wait">After pilot</div>
-      </article>
-
-      <article class="step">
-        <div class="num">3</div>
-        <div class="copy"><h3>Set up fresh domains and inboxes</h3><p>Buy 9 new sending domains, create 27 Google inboxes, check DNS stays with Spaceship, and add the inboxes to Instantly.</p></div>
-        <div class="tag wait">Needs approval</div>
-      </article>
-
-      <article class="step locked">
-        <div class="num">4</div>
-        <div class="copy"><h3>Warm the inboxes</h3><p>Warm gradually for around four weeks. Keep watching authentication and inbox health while the lead pool grows.</p></div>
-        <div class="tag lock">Blocked by setup</div>
-      </article>
-
-      <article class="step locked">
-        <div class="num">5</div>
-        <div class="copy"><h3>Launch only when both sides are ready</h3><p>Use verified leads only, then start carefully at 20 cold emails per inbox per day. Campaign details can be decided nearer the time.</p></div>
-        <div class="tag lock">Later</div>
-      </article>
-    </section>
-
-    <aside>
-      <section class="card"><h2>What “ready to send” means</h2><ul><li>Fresh domains have finished warm-up</li><li>DNS, MX, SPF, DKIM and DMARC are all correct</li><li>The pilot has given us real lead-yield numbers</li><li>We have a healthy reserve of verified contacts</li></ul></section>
-      <section class="card"><h2>Pilot target</h2><div class="metric">10</div><div class="metric-label">adjacent Romford-area postcode districts<br>Trade: window cleaners</div><div class="mini"><div><span>Purpose</span><span>Validate data</span></div><div><span>Sending</span><span>None</span></div><div><span>Output</span><span>Lead-pool baseline</span></div></div></section>
-      <section class="card"><h2>Guardrails</h2><p>Keep levelledmedia.com out of cold sending. Leave new domains on Spaceship DNS. Never import unverified email addresses.</p></section>
-    </aside>
-  </div>
-
-  <footer><span>Plan updated 8 October 2026</span><span class="footer-dot"></span><span>This is deliberately the simple view.</span><span class="footer-dot"></span><span>Refreshes automatically every minute.</span></footer>
+<header><div><div class="eyebrow">Levelled Media · cold email</div><h1>Setup status</h1></div><div class="updated">Updated 13 October 2026</div></header>
+<section class="hero"><div class="status">Waiting for one purchase</div><h2>The replacement email setup is prepared, but it is not warming yet.</h2><p>The old 21 inboxes are attached to seven domains that expired on 11 October. I’ve prepared a clean replacement: nine new domains, 27 Google inboxes and an Instantly warm-up plan.</p></section>
+<section class="next"><div><div class="label">What Lewis needs to do next</div><strong>Buy the nine prepared domains in Spaceship.</strong></div><div class="price"><b>$81.72</b><span>9 domains · one year · before tax</span></div></section>
+<section class="progress"><h3>Where we are</h3><div class="track"><div class="stage done"><div class="dot"></div><b>Checked</b><span>Old inboxes, domains and DNS reviewed</span></div><div class="stage current"><div class="dot"></div><b>Prepared</b><span>Domains, inbox order and safeguards ready</span></div><div class="stage"><div class="dot"></div><b>Provision</b><span>Purchase domains and create 27 inboxes</span></div><div class="stage"><div class="dot"></div><b>Warm</b><span>Connect to Instantly and monitor health</span></div></div></section>
+<section class="prepared"><h3>What’s already been done</h3><p>The detail is here if you want it, but it stays out of the way by default.</p>
+<details><summary>Replacement setup</summary><ul><li>Nine available replacement domains selected.</li><li>27 Google inboxes planned — three per domain.</li><li>Mailbox names and the Premium Inboxes order details prepared.</li><li>Estimated inbox cost: $94.50 every four weeks before tax or conversion.</li></ul></details>
+<details><summary>DNS and deliverability safeguards</summary><ul><li class="guardrail">Domains must stay on Spaceship nameservers — no Cloudflare.</li><li>Premium Inboxes instructions explicitly cover MX, SPF, DKIM, DMARC, forwarding and tracking records.</li><li>A verification sequence is ready before any warm-up begins.</li></ul></details>
+<details><summary>Instantly and warm-up</summary><ul><li>Instantly handoff and account-health checks are prepared.</li><li>Warm-up is intended to start as soon as provisioning and DNS checks pass.</li><li>No cold campaigns will use the expired domains.</li></ul></details>
+<details><summary>Old setup</summary><p>The 21 old inboxes are still connected to Instantly, but all seven sending domains expired. Their cancellation details are prepared so they can be retired without continuing unnecessary billing after the replacement is working.</p></details>
+</section><footer>No live sending is active. The main Levelled Media domain will not be used for cold email.</footer>
 </main>
-<script>setInterval(() => location.reload(), 60000);</script>
 </body>
 </html>
